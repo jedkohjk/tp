@@ -5,13 +5,27 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
+import seedu.address.commons.core.LogsCenter;
 
 /**
  * Writes and reads files
  */
 public class FileUtil {
 
+    private static final Logger logger = LogsCenter.getLogger(FileUtil.class);
     private static final String CHARSET = "UTF-8";
+    private static final SecretKey ENCRYPTION_KEY =
+            new SecretKeySpec("l1Il1l1l1llll1Ill11l1lIIll11ll1I".getBytes(), "AES");
 
     public static boolean isFileExists(Path file) {
         return Files.exists(file) && Files.isRegularFile(file);
@@ -69,7 +83,17 @@ public class FileUtil {
      * Assumes file exists
      */
     public static String readFromFile(Path file) throws IOException {
-        return new String(Files.readAllBytes(file), CHARSET);
+        Cipher cipher;
+        byte[] fromFile = Files.readAllBytes(file);
+        try {
+            cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, ENCRYPTION_KEY);
+            fromFile = cipher.doFinal(fromFile);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException
+                | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            logger.warning(e.getMessage());
+        }
+        return new String(fromFile, CHARSET).trim();
     }
 
     /**
@@ -77,7 +101,18 @@ public class FileUtil {
      * Will create the file if it does not exist yet.
      */
     public static void writeToFile(Path file, String content) throws IOException {
-        Files.write(file, content.getBytes(CHARSET));
+        Cipher cipher;
+        String paddedContent = content + " ".repeat(16 - (content.length() % 16));
+        byte[] toFile = paddedContent.getBytes(CHARSET);
+        try {
+            cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, ENCRYPTION_KEY);
+            toFile = cipher.doFinal(toFile);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException
+                | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            logger.warning(e.getMessage());
+        }
+        Files.write(file, toFile);
     }
 
 }
