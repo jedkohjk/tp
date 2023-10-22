@@ -83,10 +83,9 @@ public class FileUtil {
      * Assumes file exists
      */
     public static String readFromFile(Path file) throws IOException {
-        Cipher cipher;
         byte[] fromFile = Files.readAllBytes(file);
         try {
-            cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.DECRYPT_MODE, ENCRYPTION_KEY);
             fromFile = cipher.doFinal(fromFile);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException
@@ -101,11 +100,10 @@ public class FileUtil {
      * Will create the file if it does not exist yet.
      */
     public static void writeToFile(Path file, String content) throws IOException {
-        Cipher cipher;
         String paddedContent = content + " ".repeat(16 - (content.length() % 16));
         byte[] toFile = paddedContent.getBytes(CHARSET);
         try {
-            cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, ENCRYPTION_KEY);
             toFile = cipher.doFinal(toFile);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException
