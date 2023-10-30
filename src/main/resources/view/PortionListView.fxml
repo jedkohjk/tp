@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox id="portionListView" fx:id="portionListView" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="5" HBox.hgrow="ALWAYS" prefHeight="20">
+<HBox id="portionListView" fx:id="portionListView" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" spacing="5" HBox.hgrow="ALWAYS" prefHeight="20">
   <children>
     <VBox HBox.hgrow="ALWAYS" minWidth="55" prefWidth="60" alignment="CENTER_LEFT">
         <padding>

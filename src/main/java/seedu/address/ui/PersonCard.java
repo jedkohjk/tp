@@ -61,12 +61,34 @@ public class PersonCard extends UiPart<Region> {
             balanceString = "+" + balanceString;
         }
         balance.setText("Balance: " + balanceString);
-        phone.setText(person.getPhone().value);
-        telegramHandle.setText(person.getTelegramHandle().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
+        if (person.getPhone() == null) {
+            hideLabel(phone);
+        } else {
+            phone.setText(person.getPhone().value);
+        }
+        if (person.getTelegramHandle() == null) {
+            hideLabel(telegramHandle);
+        } else {
+            telegramHandle.setText(person.getTelegramHandle().value);
+        }
+        if (person.getAddress() == null) {
+            hideLabel(address);
+        } else {
+            address.setText(person.getAddress().value);
+        }
+        if (person.getEmail() == null) {
+            hideLabel(email);
+        } else {
+            email.setText(person.getEmail().value);
+        }
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+    }
+    private void hideLabel(Label label) {
+        label.setVisible(false);
+        label.setMinSize(0, 0);
+        label.setPrefSize(0, 0);
+        label.setMaxSize(0, 0);
     }
 }

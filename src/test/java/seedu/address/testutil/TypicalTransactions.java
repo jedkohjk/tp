@@ -20,35 +20,35 @@ import seedu.address.model.transaction.Transaction;
 public class TypicalTransactions {
     public static final Transaction LUNCH = new TransactionBuilder().withAmount("60")
             .withDescription("Group Project Lunch").withPayeeName(Name.SELF.fullName)
-            .withPortions(Set.of(ALICE_PORTION, BENSON_PORTION)).withTimestamp("2023-10-13T12:34:56.789").build();
+            .withPortions(Set.of(ALICE_PORTION, BENSON_PORTION)).withTimestamp("13/10/2023 12:00").build();
     public static final Transaction DINNER = new TransactionBuilder().withAmount("90").withDescription("Hall Dinner")
             .withPayeeName(TypicalPersons.BENSON.getName().fullName)
-            .withPortions(Set.of(BENSON_PORTION, SELF_PORTION)).withTimestamp("2023-10-13T12:34:56.790").build();
+            .withPortions(Set.of(BENSON_PORTION, SELF_PORTION)).withTimestamp("13/10/2023 16:00").build();
 
 
     public static final Transaction RENT = new TransactionBuilder().withAmount("600")
             .withDescription("Shared Dorm Rent").withPayeeName(TypicalPersons.BENSON.getName().fullName).withPortions(
                     Set.of(new PortionBuilder(BENSON_PORTION).withWeight(BigFraction.ONE.toString()).build(),
                            new PortionBuilder(SELF_PORTION).withWeight(BigFraction.ONE.toString()).build()))
-            .withTimestamp("2023-10-13T12:34:56.791").build();
+            .withTimestamp("13/10/2023 13:00").build();
 
     public static final Transaction TRANSPORTATION = new TransactionBuilder().withAmount("100")
             .withDescription("Carpool Subscription").withPayeeName(Name.SELF.fullName).withPortions(
                     Set.of(new PortionBuilder(BENSON_PORTION).withWeight(BigFraction.ONE.toString()).build(),
                             new PortionBuilder(SELF_PORTION).withWeight(BigFraction.ONE.toString()).build()))
-            .withTimestamp("2023-10-13T12:34:56.792").build();
+            .withTimestamp("13/10/2023 04:00").build();
 
     public static final Transaction GROCERIES = new TransactionBuilder().withAmount("120")
             .withDescription("Groceries").withPayeeName(Name.SELF.fullName).withPortions(
                     Set.of(new PortionBuilder(ALICE_PORTION).withWeight(BigFraction.ONE.toString()).build(),
                             new PortionBuilder(BENSON_PORTION).withWeight(BigFraction.ONE.toString()).build(),
                             new PortionBuilder(SELF_PORTION).withWeight(BigFraction.ONE.toString()).build()))
-            .withTimestamp("2023-10-13T12:34:56.793").build();
+            .withTimestamp("13/10/2023 02:00").build();
 
     public static final Transaction BREAKFAST_WITH_ALICE = new TransactionBuilder().withAmount("10")
             .withDescription("Breakfast with Alice").withPayeeName(Name.SELF.fullName).withPortions(
                     Set.of(new PortionBuilder(ALICE_PORTION).withWeight("2.00").build()))
-            .withTimestamp("2023-10-13T12:34:56.794").build();
+            .withTimestamp("14/10/2023 10:00").build();
 
     public static List<Transaction> getTypicalTransactions() {
         return new ArrayList<>(Arrays.asList(LUNCH, DINNER, RENT, TRANSPORTATION, BREAKFAST_WITH_ALICE));

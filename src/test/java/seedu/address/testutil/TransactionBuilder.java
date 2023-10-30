@@ -26,7 +26,7 @@ public class TransactionBuilder {
     public static final String DEFAULT_PAYEE_NAME = "Default Payee Name";
 
     // necessary for testing of EditTransactionCommand, to test actual vs expected transactions
-    public static final String DEFAULT_TIMESTAMP = "2023-10-12T12:34:56.789";
+    public static final String DEFAULT_TIMESTAMP = "12/10/2023 12:34";
 
     public static final Set<Portion> DEFAULT_PORTIONS = new HashSet<>(
             List.of(new Portion(TypicalPersons.BOB.getName(), new Weight("1.0"))));

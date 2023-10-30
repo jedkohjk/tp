@@ -316,7 +316,7 @@ public class Transaction implements Comparable<Transaction> {
 
     @Override
     public int compareTo(Transaction other) {
-        return other.timestamp.value.compareTo(this.timestamp.value);
+        return other.timestamp.compareTo(this.timestamp);
     }
 
     @Override

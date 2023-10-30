@@ -46,7 +46,7 @@ public class EditTransactionCommand extends Command {
             + PREFIX_COST + "10.00 "
             + PREFIX_DESCRIPTION + "Bought a book "
             + PREFIX_NAME + "John Doe "
-            + PREFIX_TIMESTAMP + "2020-01-01 12:00";
+            + PREFIX_TIMESTAMP + "10/10/2020 12:00";
 
     public static final String MESSAGE_EDIT_TRANSACTION_SUCCESS = "Edited Transaction: %1$s";
 

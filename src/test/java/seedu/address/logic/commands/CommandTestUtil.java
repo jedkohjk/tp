@@ -46,7 +46,7 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
-    public static final String VALID_TIMESTAMP = "2023-10-13T12:34:56.789";
+    public static final String VALID_TIMESTAMP = "13/10/2023 12:34";
 
     public static final String VALID_DESCRIPTION_LUNCH = "Lunch at Tampines Mall";
 

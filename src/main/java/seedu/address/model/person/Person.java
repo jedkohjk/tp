@@ -31,7 +31,7 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, TelegramHandle telegramHandle, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, telegramHandle, email, address, tags);
+        requireAllNonNull(name);
         checkArgument(!Name.isReservedName(name), String.format(Name.RESERVED_CONSTRAINTS, name.toString()));
         this.name = name;
         this.phone = phone;
@@ -99,10 +99,14 @@ public class Person {
 
         Person otherPerson = (Person) other;
         return name.equals(otherPerson.name)
-                && phone.equals(otherPerson.phone)
-                && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address)
-                && telegramHandle.equals(otherPerson.telegramHandle)
+                && (phone == otherPerson.phone
+                || (phone != null && phone.equals(otherPerson.phone)))
+                && (email == otherPerson.email
+                || (email != null && email.equals(otherPerson.email)))
+                && (address == otherPerson.address
+                || (address != null && address.equals(otherPerson.address)))
+                && (telegramHandle == otherPerson.telegramHandle
+                || (telegramHandle != null && telegramHandle.equals(otherPerson.telegramHandle)))
                 && tags.equals(otherPerson.tags);
     }
 

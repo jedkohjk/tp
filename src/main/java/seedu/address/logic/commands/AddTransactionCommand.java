@@ -37,7 +37,7 @@ public class AddTransactionCommand extends Command {
             + PREFIX_DESCRIPTION + "bread "
             + PREFIX_NAME + "John Doe "
             + PREFIX_COST + "25.00 "
-            + PREFIX_TIMESTAMP + "2020-10-10T12:00 "
+            + PREFIX_TIMESTAMP + "10/10/2020 12:00 "
             + PREFIX_NAME + "Self "
             + PREFIX_WEIGHT + "1.5 "
             + PREFIX_NAME + "John Doe "

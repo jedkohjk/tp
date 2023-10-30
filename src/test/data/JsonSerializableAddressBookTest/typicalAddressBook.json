@@ -23,7 +23,7 @@
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
-    "phone" : "87652533",
+    "phone" : "",
     "telegramHandle" : "@Daniel123",
     "email" : "cornelia@example.com",
     "address" : "10th street",
@@ -31,7 +31,7 @@
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
-    "telegramHandle" : "@Elle123",
+    "telegramHandle" : "",
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "tags" : [ ]
@@ -39,7 +39,7 @@
     "name" : "Fiona Kunz",
     "phone" : "9482427",
     "telegramHandle" : "@Fiona123",
-    "email" : "lydia@example.com",
+    "email" : "",
     "address" : "little tokyo",
     "tags" : [ ]
   }, {
@@ -47,7 +47,7 @@
     "phone" : "9482442",
     "telegramHandle" : "@George123",
     "email" : "anna@example.com",
-    "address" : "4th street",
+    "address" : "",
     "tags" : [ ]
   } ],
   "transactions" : [ {
@@ -61,7 +61,7 @@
       "personName" : "Alice Pauline",
       "weight" : "2.00"
     } ],
-    "timestamp" : "2023-10-13T12:34:56.789"
+    "timestamp" : "13/10/2023 12:00"
   }, {
     "amount" : "90.00",
     "description" : "Hall Dinner",
@@ -73,7 +73,7 @@
       "personName" : "Self",
       "weight" : "8.00"
     } ],
-    "timestamp" : "2023-10-13T12:34:56.790"
+    "timestamp" : "13/10/2023 16:00"
   }, {
     "amount" : "600.00",
     "description" : "Shared Dorm Rent",
@@ -85,7 +85,7 @@
       "personName" : "Benson Meier",
       "weight" : "1.00"
     } ],
-    "timestamp" : "2023-10-13T12:34:56.791"
+    "timestamp" : "13/10/2023 13:00"
   }, {
     "amount" : "100.00",
     "description" : "Carpool Subscription",
@@ -97,7 +97,7 @@
       "personName" : "Benson Meier",
       "weight" : "1.00"
     } ],
-    "timestamp" : "2023-10-13T12:34:56.792"
+    "timestamp" : "13/10/2023 04:00"
   }, {
     "amount" : "10.00",
     "description" : "Breakfast with Alice",
@@ -106,6 +106,6 @@
       "personName" : "Alice Pauline",
       "weight" : "2.00"
     }],
-    "timestamp" : "2023-10-13T12:34:56.794"
+    "timestamp" : "14/10/2023 10:00"
   }]
 }

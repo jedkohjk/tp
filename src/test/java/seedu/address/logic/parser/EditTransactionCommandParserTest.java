@@ -27,7 +27,7 @@ class EditTransactionCommandParserTest {
     private static final String VALID_DESCRIPTION = "Dinner";
     private static final String VALID_COST = "10.00";
 
-    private static final String VALID_TIMESTAMP = "2020-10-10T10:10:10.100";
+    private static final String VALID_TIMESTAMP = "10/10/2020 10:10";
 
     private static final String INVALID_DESCRIPTION = " ";
 

@@ -22,6 +22,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListPersonCommand;
 import seedu.address.logic.commands.ListTransactionCommand;
+import seedu.address.logic.commands.SetShorthandCommand;
 import seedu.address.logic.commands.SettlePersonCommand;
 import seedu.address.logic.commands.SortPersonCommand;
 import seedu.address.logic.commands.UpdatePortionCommand;
@@ -45,13 +46,13 @@ public class AddressBookParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
-    public Command parseCommand(String userInput) throws ParseException {
+    public Command parseCommand(String userInput, CommandAliasMap commandMap) throws ParseException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
+        final String commandWord = commandMap.getCommand(matcher.group("commandWord"));
         final String arguments = matcher.group("arguments");
 
         // Note to developers: Change the log level in config.json to enable lower level (i.e., FINE, FINER and lower)
@@ -104,6 +105,9 @@ public class AddressBookParser {
 
         case DuplicateTransactionCommand.COMMAND_WORD:
             return new DuplicateTransactionCommandParser().parse(arguments);
+
+        case SetShorthandCommand.COMMAND_WORD:
+            return new SetShorthandCommandParser().parse(arguments);
 
         case SortPersonCommand.COMMAND_WORD:
             return new SortPersonCommandParser().parse(arguments);

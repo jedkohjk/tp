@@ -34,15 +34,15 @@ public class TypicalPersons {
             .withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withEmail("heinz@example.com").withAddress("wall street").withTelegramHandle("@Carl123").build();
-    public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
+    public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone(null)
             .withEmail("cornelia@example.com").withAddress("10th street").withTags("friends")
             .withTelegramHandle("@Daniel123").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withTelegramHandle("@Elle123").withEmail("werner@example.com").withAddress("michegan ave").build();
+            .withTelegramHandle(null).withEmail("werner@example.com").withAddress("michegan ave").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withTelegramHandle("@Fiona123").withEmail("lydia@example.com").withAddress("little tokyo").build();
+            .withTelegramHandle("@Fiona123").withEmail(null).withAddress("little tokyo").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withTelegramHandle("@George123").withEmail("anna@example.com").withAddress("4th street").build();
+            .withTelegramHandle("@George123").withEmail("anna@example.com").withAddress(null).build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")

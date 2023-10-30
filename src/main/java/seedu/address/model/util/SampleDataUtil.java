@@ -32,23 +32,23 @@ public class SampleDataUtil {
                 getTagSet("friends")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new TelegramHandle("@bernice122"),
                 new Email("berniceyu@example.com"),
-                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
+                null,
                 getTagSet("colleagues", "friends")),
-            new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new TelegramHandle("@charl0tte"),
-                new Email("charlotte@example.com"),
+            new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), null,
+                null,
                 new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
                 getTagSet("neighbours")),
-            new Person(new Name("David Li"), new Phone("91031282"), new TelegramHandle("@david_li"),
-                new Email("lidavid@example.com"),
+            new Person(new Name("David Li"), null, null,
+                null,
                 new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
                 getTagSet("family")),
             new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new TelegramHandle("@irfan_handsome"),
                 new Email("irfan@example.com"),
                 new Address("Blk 47 Tampines Street 20, #17-35"),
                 getTagSet("classmates")),
-            new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new TelegramHandle("@r0yr00yy"),
-                new Email("royb@example.com"),
-                new Address("Blk 45 Aljunied Street 85, #11-31"),
+            new Person(new Name("Roy Balakrishnan"), null, null,
+                null,
+                null,
                 getTagSet("colleagues"))
         };
     }
@@ -57,16 +57,16 @@ public class SampleDataUtil {
         return new Transaction[] {
             new Transaction(new Amount("60"), new Description("Group Project Lunch"), new Name("Self"), Set.of(
                 new Portion(new Name("Alex Yeoh"), new Weight("2")), new Portion(new Name("Bernice Yu"),
-                    new Weight("4"))), new Timestamp("2023-10-13T12:34:56.789")),
+                    new Weight("4"))), new Timestamp("13/10/2023 12:00")),
             new Transaction(new Amount("90"), new Description("Hall Dinner"), new Name("Bernice Yu"), Set.of(
                 new Portion(new Name("Self"), new Weight("8")), new Portion(new Name("Bernice Yu"), new Weight("4"))),
-                    new Timestamp("2023-10-13T12:34:56.790")),
+                    new Timestamp("13/10/2023 16:00")),
             new Transaction(new Amount("600"), new Description("Shared Dorm Rent"), new Name("Bernice Yu"), Set.of(
                 new Portion(new Name("Self"), new Weight("1")), new Portion(new Name("Bernice Yu"), new Weight("1"))),
-                    new Timestamp("2023-10-13T12:34:56.791")),
+                    new Timestamp("13/10/2023 13:00")),
             new Transaction(new Amount("100"), new Description("Carpool Subscription"), new Name("Self"), Set.of(
                 new Portion(new Name("Self"), new Weight("1")), new Portion(new Name("Bernice Yu"), new Weight("1"))),
-                    new Timestamp("2023-10-13T12:34:56.792")),
+                    new Timestamp("13/10/2023 04:00")),
         };
     }
 

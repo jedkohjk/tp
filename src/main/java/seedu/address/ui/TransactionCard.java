@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 import org.apache.commons.numbers.fraction.BigFraction;
@@ -65,7 +64,7 @@ public class TransactionCard extends UiPart<Region> {
             subtotals.keySet()), (name1, name2) -> name1.compareTo(name2));
         id.setText(displayedIndex + ". ");
         description.setText(transaction.getDescription().toString());
-        date.setText(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss").format(transaction.getTimestamp().value));
+        date.setText(transaction.getTimestamp().toString());
         NameLabel.setNameLabel(payee, transaction.getPayeeName());
         amount.setText(transaction.getAmount().toString());
         portionListView.setItems(lst);

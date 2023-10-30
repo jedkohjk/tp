@@ -98,7 +98,7 @@ class EditTransactionCommandTest {
     @Test
     public void execute_timestampFieldSpecifiedUnfilteredList_success() {
         Transaction firstTransaction = model.getFilteredTransactionList().get(INDEX_FIRST_ELEMENT.getZeroBased());
-        String timestampString = "2020-10-10T10:10:10.000";
+        String timestampString = "10/10/2020 10:10";
 
         TransactionBuilder transactionInList = new TransactionBuilder(firstTransaction);
         Transaction editedTransaction = transactionInList.withTimestamp(timestampString).build();

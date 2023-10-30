@@ -55,10 +55,26 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
-        phone = source.getPhone().value;
-        telegramHandle = source.getTelegramHandle().value;
-        email = source.getEmail().value;
-        address = source.getAddress().value;
+        if (source.getPhone() == null) {
+            phone = "";
+        } else {
+            phone = source.getPhone().value;
+        }
+        if (source.getTelegramHandle() == null) {
+            telegramHandle = "";
+        } else {
+            telegramHandle = source.getTelegramHandle().value;
+        }
+        if (source.getEmail() == null) {
+            email = "";
+        } else {
+            email = source.getEmail().value;
+        }
+        if (source.getAddress() == null) {
+            address = "";
+        } else {
+            address = source.getAddress().value;
+        }
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -74,6 +90,10 @@ class JsonAdaptedPerson {
         for (JsonAdaptedTag tag : tags) {
             personTags.add(tag.toModelType());
         }
+        final Phone modelPhone;
+        final TelegramHandle modelTelegramHandle;
+        final Email modelEmail;
+        final Address modelAddress;
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -82,39 +102,54 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
         }
         final Name modelName = new Name(name);
+        if (Name.isReservedName(modelName)) {
+            throw new IllegalValueException(String.format(Name.RESERVED_CONSTRAINTS, name));
+        }
 
         if (phone == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
         }
-        if (!Phone.isValidPhone(phone)) {
+        if (phone.equals("")) {
+            modelPhone = null;
+        } else if (!Phone.isValidPhone(phone)) {
             throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+        } else {
+            modelPhone = new Phone(phone);
         }
-        final Phone modelPhone = new Phone(phone);
 
         if (telegramHandle == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     TelegramHandle.class.getSimpleName()));
         }
-        if (!TelegramHandle.isValidTelegramHandle(telegramHandle)) {
+        if (telegramHandle.equals("")) {
+            modelTelegramHandle = null;
+        } else if (!TelegramHandle.isValidTelegramHandle(telegramHandle)) {
             throw new IllegalValueException(TelegramHandle.MESSAGE_CONSTRAINTS);
+        } else {
+            modelTelegramHandle = new TelegramHandle(telegramHandle);
         }
-        final TelegramHandle modelTelegramHandle = new TelegramHandle(telegramHandle);
 
         if (email == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
         }
-        if (!Email.isValidEmail(email)) {
+        if (email.equals("")) {
+            modelEmail = null;
+        } else if (!Email.isValidEmail(email)) {
             throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
+        } else {
+            modelEmail = new Email(email);
         }
-        final Email modelEmail = new Email(email);
 
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
+        if (address.equals("")) {
+            modelAddress = null;
+        } else if (!Address.isValidAddress(address)) {
             throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        } else {
+            modelAddress = new Address(address);
         }
-        final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelTelegramHandle, modelEmail, modelAddress, modelTags);
