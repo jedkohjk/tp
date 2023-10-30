@@ -16,6 +16,7 @@ import seedu.address.logic.commands.AddTransactionCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.DeleteTransactionCommand;
+import seedu.address.logic.commands.DuplicateTransactionCommand;
 import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.EditTransactionCommand;
 import seedu.address.logic.commands.ExitCommand;
@@ -43,6 +44,7 @@ public class CommandAliasMap {
             add(ClearCommand.COMMAND_WORD);
             add(DeletePersonCommand.COMMAND_WORD);
             add(DeleteTransactionCommand.COMMAND_WORD);
+            add(DuplicateTransactionCommand.COMMAND_WORD);
             add(EditPersonCommand.COMMAND_WORD);
             add(EditTransactionCommand.COMMAND_WORD);
             add(ExitCommand.COMMAND_WORD);
